@@ -1,0 +1,23 @@
+.historialPendientes:hover{
+    cursor: pointer;
+}
+
+.buscador{
+    display: flex;
+}
+.buscador input{
+    border-radius: 10px;
+    width: 80%;
+    height: 2.5rem;
+    padding-left: 5px;
+}
+.buscador-icono{
+    padding: 10px;
+    background: rgb(143, 165, 165);
+    /* border: none; */
+    border-top-right-radius:  10px;
+    border-bottom-right-radius: 10px;
+}
+.buscador-icono:hover{
+    background: rgb(194, 219, 219);
+}
