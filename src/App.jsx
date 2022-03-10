@@ -18,7 +18,7 @@ import { dbAuth } from "./firebase";
 // import Progreso from "./components/ProgresoPunto/Progreso";
 // import Devoluciones from "./components/Devoluciones/Devoluciones";
 import Notificaciones from "./components/Notificaciones/Notificaciones";
-import VisualizadorPdf from "./components/PDFs/visualizador";
+import Rotulo from "./components/PDFs/rotulos";
 
 function App() {
   const dispatch = useDispatch();
@@ -40,7 +40,6 @@ function App() {
       {isLoged && isLoged !== null ? <Sidebar /> : null}
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route path="/visorPdfs" element={<VisualizadorPdf />} />
         {/* <Route
           path="/"
           exact
@@ -96,6 +95,15 @@ function App() {
           element={
             <Private>
               <Profile />
+            </Private>
+          }
+        />
+
+        <Route 
+          path="/rotulo/:user_id/:id_heka"
+          element={
+            <Private>
+              <Rotulo />
             </Private>
           }
         />

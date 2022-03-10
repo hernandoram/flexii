@@ -1,5 +1,6 @@
 import React from "react";
 import { Modal, Button, Spinner } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 
 const ModalInfoHistorial = ({ show, setModalShow, data }) => {
   if(!data) {
@@ -118,6 +119,11 @@ const ModalInfoHistorial = ({ show, setModalShow, data }) => {
         <Button variant="dark" onClick={() => setModalShow(false)}>
           Cerrar
         </Button>
+        <NavLink to={"/rotulo/"+data.id_user+"/"+data.id_heka}>
+          <Button>
+            Descargar rótulo
+          </Button>
+        </NavLink>
       </Modal.Footer>
     </Modal>
   );
