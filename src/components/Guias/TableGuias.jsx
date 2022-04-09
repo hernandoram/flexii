@@ -22,18 +22,20 @@ const TableGuias = ({ guias, filter }) => {
     setData(guias)
   }, [guias]);
   
-  const omitBtnAction = !["Recibidos", ""].includes(filter);
+  const omitBtnAction = !["Recibidos"].includes(filter);
 
   const columns = [
     {
       name: "ID",
       selector: (row) => row.id_heka,
       sortable: true,
+      omit: filter === ""
     },
     {
       name: "Guia",
       selector: (row) => row.numeroGuia,
-      sortable: true
+      sortable: true,
+      omit: filter === ""
     },
     {
       name: "Fecha",

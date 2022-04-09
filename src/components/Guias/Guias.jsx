@@ -9,6 +9,7 @@ const Guias = () => {
   const { guias } = useSelector((state) => state.guias);
   const [data, setData] = useState(guias);
   const [filter, setFilter] = useState("");
+  
   useEffect(() => {
     guias.length <= 0 && dispatch(getAllGuias());
     // eslint-disable-next-line
@@ -21,17 +22,15 @@ const Guias = () => {
 
   const filtrar = (filter) => {
     try {
-      if (filter === "Proceso") {
-        const newArray = guias.filter((guia) => !guia.recibidoEnPunto && !guia.entregadaDestinatario);
-        setData(newArray);
-      } else if (filter === "Recibidos") {
+      if (filter === "Recibidos") {
         const newArray = guias.filter((guia) => guia.recibidoEnPunto && !guia.entregadaDestinatario);
         setData(newArray);
       } else if (filter === "Entregados") {
         const newArray = guias.filter((guia) => guia.entregadaDestinatario);
         setData(newArray);
       } else {
-        setData(guias);
+        const newArray = guias.filter((guia) => !guia.recibidoEnPunto && !guia.entregadaDestinatario);
+        setData(newArray);
       }
       setFilter(filter);
     } catch (error) {
@@ -48,10 +47,7 @@ const Guias = () => {
         justify onSelect={filtrar} defaultActiveKey=""
       >
         <Nav.Item>
-          <Nav.Link eventKey="" className="text-mutted">Todos</Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link eventKey="Proceso">Proceso</Nav.Link>
+          <Nav.Link eventKey="">Proceso</Nav.Link>
         </Nav.Item>
         <Nav.Item>
           <Nav.Link eventKey="Recibidos">Recibidos</Nav.Link>
