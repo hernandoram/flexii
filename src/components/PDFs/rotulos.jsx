@@ -48,54 +48,24 @@ const Rotulo = () => {
     
 
     return (
-        <div id="visor" style={{margin: "10px"}}>
-            <table className="table-responsive">
-                <tbody>
-                    <tr>
-                        <td>                        
-                            <img src={logoHeka} alt="" width="100" height="100" />
-                            
-                            <h5 className="text-dark">{transportadora} - GUIA:  <strong  >{numeroGuia}</strong></h5>
-                            
-                            <h5 className="text-dark ">Remitente: <strong>hekaentrega.co - {remitente}</strong></h5>
-                            
-                            
-                            <h5 className="text-dark "> Destinatario: <strong> {destinatario}</strong></h5>
-                            <h5 className="text-dark ">Dirección: <strong> {direccion}  </strong>                            </h5>
-                            <h5 className="text-dark ">Ciudad:  <strong> {ciudad} </strong>                           </h5>
-                            <h5 className="text-dark ">Contenido: <strong> {contenido}  </strong>                                 </h5>
-                            <h5 className="text-dark ">Peso:    <strong> {peso} kg   </strong>                                           </h5>
-                        </td>
-                    </tr>
-                    
-                </tbody>    
-            </table> 
-
-            <p>
-                <small>
-                    <cite>
-                        HEKA ENTREGA NIT 1072497419-8 Cel: +57 321 336 19 11  SILVANIA(CUNDINAMARCA) - No somos transportadora, somos una plataforma conectada tecnológicamente con aliados logísticos
-                        que permiten el envío de paquetes e-commerce u otro tipo de mercancía.
-                    </cite>
-                </small>
-            </p>  
+        <div id="visor" style={{margin: "10px"}}>  
 
             <table className="table table-responsive table-bordered w-100">
                 <tbody>
                     <tr>
-                            <td className="text-center">
-                                <img src={logoHeka} alt="" width="40" height="40" />
-                            </td>
-                            
-                            <td><small className="texto-small"><strong>hekaentrega.co</strong></small> </td>
+                        <td className="text-center">
+                            <img src={logoHeka} alt="" width="40" height="40" />
+                        </td>
                         
-                            <td><small className="texto-small"><strong>RECIBE:</strong>  {remitente} </small> </td>
-                        
-                            <td><small className="texto-small"><strong>Fecha:</strong>  {fecha}</small> </td>
-                        
-                            <td><small className="texto-small"> <strong>Guia: </strong>{numeroGuia}</small></td>
-                        
-                            <td><small className="texto-small"><strong>Transportadora:</strong>   {transportadora} </small></td>
+                        <td><small className="texto-small"><strong>hekaentrega.co</strong></small> </td>
+                    
+                        <td><small className="texto-small"><strong>RECIBE:</strong>  {remitente} </small> </td>
+                    
+                        <td><small className="texto-small"><strong>Fecha:</strong>  {fecha}</small> </td>
+                    
+                        <td><small className="texto-small"> <strong>Guia: </strong>{numeroGuia}</small></td>
+                    
+                        <td><small className="texto-small"><strong>Transportadora:</strong>   {transportadora} </small></td>
                     </tr>
                 </tbody>
             </table>
@@ -117,13 +87,17 @@ const Rotulo = () => {
                             <small className="texto-small"><strong>Origen: </strong>{ciudadR}</small><br />
                             <small className="texto-small"><strong>Cel/Tel: </strong>{celRem}</small><br />
                         </td>
-                        <td colSpan={2}>
+                        <td >
                             <small className="texto-small"><strong>DATOS DESTINO </strong></small> <br />
                             <small className="texto-small"><strong>Destinatario: </strong>{destinatario}</small> <br />
                         
                             <small className="texto-small"><strong>Destino: </strong>{ciudad}</small><br />
                             <small className="texto-small"><strong>Dirección: </strong>{direccion}</small> <br />
                             <small className="texto-small"><strong>Cel/Tel: </strong>{celDes}</small>
+                        </td>
+                        <td>
+                            <h6>Firma quien recibe:</h6>
+                            <div style={{borderBottom: ".5px solid black"}} className="mt-5"></div>
                         </td>
                     </tr>
                     <tr>
