@@ -119,7 +119,7 @@ const ModalInfoHistorial = ({ show, setModalShow, data }) => {
         <Button variant="dark" onClick={() => setModalShow(false)}>
           Cerrar
         </Button>
-        <NavLink to={"/rotulo/"+data.id_user+"/"+data.id_heka} target="_blank">
+        <NavLink to={"/rotulo/"+data.id_user+"/"+data.id_heka}>
           <Button>
             Descargar rótulo
           </Button>
