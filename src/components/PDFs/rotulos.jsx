@@ -28,23 +28,22 @@ const Rotulo = () => {
     }
 
     const charger = () => (<span><Spinner animation="grow" size="sm" /> Cargando...</span>)
-    var transportadora = guia ? guia.transportadora : charger();
-    var numeroGuia = guia ? guia.numeroGuia : charger();
-    var remitente = guia ? guia.nombreR : charger();
-    var destinatario = guia ? guia.nombreD : charger();
-    var direccion = guia ? guia.direccionD : charger();
-    var ciudad = guia ? guia.ciudadD : charger();
-    var ciudadR = guia ? guia.ciudadR : charger();
-    var contenido = guia ? guia.dice_contener : charger();
-    var peso = guia ? guia.peso : charger();
-    var fecha = guia ? guia.fecha : charger();
-    var documentoCliente = guia ? guia.identificacionD : charger();
-    var celRem= guia ? guia.celularR : charger();
-    var celDes= guia ? guia.telefonoD : charger();
-    var costoEnvio= guia ? guia.valor : charger();
-    var texto_tipo_envio= guia ? guia.type : charger();
-    var destinopaga=guia ? "destPaga" : charger();
-    var remitentepaga=guia ? "RemPaga" : charger();
+    const transportadora = guia ? guia.transportadora : charger();
+    const numeroGuia = guia ? guia.numeroGuia : charger();
+    const remitente = guia ? guia.nombreR : charger();
+    const destinatario = guia ? guia.nombreD : charger();
+    const direccion = guia ? guia.direccionD : charger();
+    const ciudad = guia ? guia.ciudadD : charger();
+    const ciudadR = guia ? guia.ciudadR : charger();
+    const contenido = guia ? guia.dice_contener : charger();
+    const peso = guia ? guia.peso : charger();
+    const fecha = guia ? guia.fecha : charger();
+    const documentoCliente = guia ? guia.identificacionD : charger();
+    const celRem= guia ? guia.celularR : charger();
+    const celDes= guia ? guia.telefonoD : charger();
+    const costoEnvio= guia ? guia.valor : charger();
+    const texto_tipo_envio= guia ? guia.type : charger();
+    const destinopaga=guia ? "destPaga" : charger();
     
 
     return (
@@ -97,7 +96,9 @@ const Rotulo = () => {
                         </td>
                         <td>
                             <h6>Firma quien recibe:</h6>
-                            <div style={{borderBottom: ".5px solid black"}} className="mt-5"></div>
+                            <div style={{borderTop: ".5px solid black", marginTop: "4em"}} className="w-75 mx-auto">
+                                <p>CC/NIT:</p>
+                            </div>
                         </td>
                     </tr>
                     <tr>
@@ -114,13 +115,18 @@ const Rotulo = () => {
                             <small className="texto-small"><strong>Costo envío:  </strong>{costoEnvio}</small> <br />
                         </td>
                         <td>
-                            <h3 className="text-center"><strong>ENVÍO {texto_tipo_envio}</strong> </h3>
+                            <h3 className="text-center"><strong>Valor cobro a destino:</strong> </h3>
                             
-                            <hr className="sidebar-divider"></hr>
-                            <small className="text-center texto-small2"><strong>ORIGEN PAGA: </strong>${remitentepaga}</small><br />
+                            <h5 className="text-center">
+                                <strong>${guia ?
+                                    new Intl.NumberFormat("US", {
+                                        style: "currency",
+                                        maximumSignificantDigits: 1,
+                                        currency: "COP"
+                                    }).format(guia.valor) : charger()}
+                                </strong>
+                            </h5>
                             
-                            <hr className="sidebar-divider"></hr>
-                            <small className="text-center texto-small2"><strong>DESTINO PAGA: </strong>${destinopaga}</small>
                         
                         </td>
                         
