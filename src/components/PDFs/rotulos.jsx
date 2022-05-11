@@ -56,7 +56,7 @@ const Rotulo = () => {
                             <img src={logoHeka} alt="" width="40" height="40" />
                         </td>
                         
-                        <td><small className="texto-small"><strong>hekaentrega.co</strong></small> </td>
+                        <td><small className="texto-small"><strong>Flexii</strong></small> </td>
                     
                         <td><small className="texto-small"><strong>RECIBE:</strong>  {remitente} </small> </td>
                     
@@ -71,8 +71,8 @@ const Rotulo = () => {
 
             <p>
                 <cite>
-                    El usuario deja constancia expresa de que acepta y tiene conocimiento del contrato publicado en la pagina web hekaentrega.co 
-                    ,como remitente declara que este envío no contiene dinero en efectivo, joyas, objetos o fines prohibidos por la ley, y exime a hekaentrega y la transportadora asignada de toda responsabilidad. 
+                    El usuario deja constancia expresa de que acepta y tiene conocimiento del contrato publicado en la pagina web Flexii 
+                    ,como remitente declara que este envío no contiene dinero en efectivo, joyas, objetos o fines prohibidos por la ley, y exime a Flexii y la transportadora asignada de toda responsabilidad. 
                 </cite>
             </p>
 
