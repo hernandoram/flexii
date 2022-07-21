@@ -16,6 +16,7 @@ const initialState = {
   city: "",
   direction:"",
   termsConditions: "false",
+  visible: true
 };
 
 export const userReducer = (state = initialState, action) => {
@@ -38,6 +39,7 @@ export const userReducer = (state = initialState, action) => {
         city: action.payload.city,
         direction: action.payload.direction,
         termsConditions: action.payload.termsConditions,
+        visible: action.visible
       };
     case types.loginUser:
       return { 
@@ -57,6 +59,7 @@ export const userReducer = (state = initialState, action) => {
         city: action.payload.city,
         direction: action.payload.direction,
         termsConditions: action.payload.termsConditions,
+        visible: action.visible
       };
     case types.getUser:
       return { 
@@ -76,6 +79,7 @@ export const userReducer = (state = initialState, action) => {
         city: action.payload.city,
         direction: action.payload.direction,
         termsConditions: action.payload.termsConditions,
+        visible: action.payload.visible
       };
     case types.logoutUser:
       return {

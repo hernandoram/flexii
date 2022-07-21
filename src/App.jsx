@@ -6,7 +6,6 @@ import {
 } from "react-router-dom";
 import { useSelector } from "react-redux";
 import RecibirPaquete from "./components/RecibirPaquetes/Recibir";
-// import Pagos from "./components/Pagos/Pagos";
 import Guias from "./components/Guias/Guias";
 import Login from "./components/Login/Login";
 import { useDispatch } from "react-redux";
@@ -15,10 +14,9 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import Profile from "./components/Profile/Profile";
 import { onAuthStateChanged } from "@firebase/auth";
 import { dbAuth } from "./firebase";
-// import Progreso from "./components/ProgresoPunto/Progreso";
-// import Devoluciones from "./components/Devoluciones/Devoluciones";
 import Notificaciones from "./components/Notificaciones/Notificaciones";
 import Rotulo from "./components/PDFs/rotulos";
+import ActivarCuenta from "./modals/activarCuenta/ActivarCuenta";
 
 function App() {
   const dispatch = useDispatch();
@@ -38,18 +36,9 @@ function App() {
   return (
     <Router>
       {isLoged && isLoged !== null ? <Sidebar /> : null}
+      {isLoged ? <ActivarCuenta /> : null}
       <Routes>
         <Route path="/login" element={<Login />} />
-        {/* <Route
-          path="/"
-          exact
-          element={
-            <Private>
-              {" "}
-              <Progreso />{" "}
-            </Private>
-          }
-        /> */}
         <Route
           path="/historial"
           element={
@@ -58,14 +47,6 @@ function App() {
             </Private>
           }
         />
-        {/* <Route
-          path="/devoluciones"
-          element={
-            <Private>
-              <Devoluciones />
-            </Private>
-          }
-        /> */}
         <Route
           path="/"
           element={
@@ -82,14 +63,6 @@ function App() {
             </Private>
           }
         />
-        {/* <Route
-          path="/pagos"
-          element={
-            <Private>
-              <Pagos />
-            </Private>
-          }
-        /> */}
         <Route
           path="/profile"
           element={

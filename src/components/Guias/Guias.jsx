@@ -47,13 +47,13 @@ const Guias = () => {
         justify onSelect={filtrar} defaultActiveKey=""
       >
         <Nav.Item>
-          <Nav.Link eventKey="">Proceso</Nav.Link>
+          <Nav.Link href="#" eventKey="">Proceso</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="Recibidos">Recibidos</Nav.Link>
+          <Nav.Link href="#" eventKey="Recibidos">Recibidos</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="Entregados">Entregados</Nav.Link>
+          <Nav.Link href="#" eventKey="Entregados">Entregados</Nav.Link>
         </Nav.Item>
       </Nav>
 

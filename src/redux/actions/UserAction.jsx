@@ -52,6 +52,7 @@ export const getUser = (id, token) => {
     try {
       const docSnap = await getDoc(doc(dbFirestore, `oficinas/${id}`));
       const data = docSnap.data();
+
       dispatch({
         type: types.getUser,
         payload: {
@@ -70,6 +71,7 @@ export const getUser = (id, token) => {
           city: data.ciudad,
           direction: data.direccion_completa,
           termsConditions: data.termsConditions,
+          visible: data.visible
         },
       });
     } catch (error) {
