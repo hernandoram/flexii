@@ -43,8 +43,7 @@ const Rotulo = () => {
     const celDes= guia ? guia.telefonoD : charger();
     const costoEnvio= guia ? guia.valor : charger();
     const texto_tipo_envio= guia ? guia.type : charger();
-    const destinopaga=guia ? "destPaga" : charger();
-    
+    const destinopaga=guia ? "destPaga" : charger();    
 
     return (
         <div id="visor" style={{margin: "10px"}}>  
@@ -118,12 +117,13 @@ const Rotulo = () => {
                             <h3 className="text-center"><strong>Valor cobro a destino:</strong> </h3>
                             
                             <h5 className="text-center">
+                                
                                 <strong>${guia ?
                                     new Intl.NumberFormat("US", {
                                         style: "currency",
-                                        maximumSignificantDigits: 1,
+                                        maximumSignificantDigits: 6,
                                         currency: "COP"
-                                    }).format(guia.valor) : charger()}
+                                    }).format(costoEnvio) : charger()}
                                 </strong>
                             </h5>
                             

@@ -16,6 +16,7 @@ import "./sidebar.css";
 import { useDispatch } from "react-redux";
 import { logoutUser } from "../../redux/actions/UserAction";
 import { useSelector } from "react-redux";
+import logoHeka from "../../img/logo-heka.png";
 
 const Sidebar = () => {
   const { name } = useSelector((state) => state.user);
@@ -33,7 +34,7 @@ const Sidebar = () => {
         </Navbar.Brand>
         <Navbar.Offcanvas id="pricipal-sidebar" style={{ maxWidth: "17em" }}>
           <Offcanvas.Header className="sidebarHeader border-bottom" closeButton>
-            <Offcanvas.Title className="ms-5">PUNTOS</Offcanvas.Title>
+            <Offcanvas.Title className="ms-5">PUNTOS FLEXII</Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body className="sidebarBody">
             {/* <NavLink to="/" className="sidebar-item border-bottom mb-3">
@@ -54,6 +55,9 @@ const Sidebar = () => {
             <NavLink to="/historial" className="sidebar-item border-bottom mb-3">
               <FaAngellist className="sidebar-item-icon" /> Historial Servicios
             </NavLink>
+            <a href="https://www.hekaentrega.co/ingreso.html" target="_blank" className="sidebar-item border-bottom mb-3">
+              <img src={logoHeka} alt="Logo" width={'25px'}/> Heka Entrega
+            </a>
             {/* <NavLink
               to="/devoluciones"
               className="sidebar-item border-bottom mb-3"
