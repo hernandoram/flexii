@@ -56,7 +56,7 @@ const Sidebar = () => {
               <FaAngellist className="sidebar-item-icon" /> Historial Servicios
             </NavLink>
             <a href="https://www.hekaentrega.co/ingreso.html" target="_blank" className="sidebar-item border-bottom mb-3">
-              <img src={logoHeka} alt="Logo" width={'25px'}/> Heka Entrega
+              <img src={logoHeka} alt="Logo" width={'25px'}/> Plataforma envíos
             </a>
             {/* <NavLink
               to="/devoluciones"
