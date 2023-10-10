@@ -46,10 +46,7 @@ const RecibirPaquete = () => {
         
       setnumGuia("");
       setModalShow(true);
-      actualizaEstadoGuiaUsuario(res.id_heka, res.guia.id_user, {
-        estado: "Recibido oficina",
-        seguimiento_finalizado: true
-      });
+      actualizaEstadoGuiaUsuario(res.id_heka, res.guia.id_user, tipoActualizacionEstado.usuario.recibir);
       dispatch(getAllGuias());
 
     } catch (error) {

@@ -114,10 +114,7 @@ const TableGuias = ({ guias, filter }) => {
         const actualizar = tipoActualizacionEstado.entregar;
     
         dispatch(actualizarGuia(actualizar, row.id_heka, row.parent_id));
-        actualizaEstadoGuiaUsuario(row.id_heka, row.id_user, {
-          estado: "Entregada destinatario",
-          seguimiento_finalizado: true
-        });
+        actualizaEstadoGuiaUsuario(row.id_heka, row.id_user, tipoActualizacionEstado.usuario.entregar);
       }
     });
 
