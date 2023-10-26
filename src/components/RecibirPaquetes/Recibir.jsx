@@ -50,7 +50,7 @@ const RecibirPaquete = () => {
       dispatch(getAllGuias());
 
     } catch (error) {
-      console.log(`ERROR en Recibir.jsx en action: ${error}`)
+      console.log(`ERROR en Recibir.jsx en action: ${error.message}`, error);
     }
   };
 

@@ -444,13 +444,14 @@ export const recibirGuia = async (numGuia, office_id) => {
     } else if(guiaEncontrada.data().id_oficina === office_id) {
       // sino, se envía uno para registrarla, siempre que se verifique que la oficina es la misma
       respuesta = {
-        type: "no guardada", guia,
+        type: "no guardada", guia, id_heka,
         success: true
       };
     } else {
       // Si llega a esta condición es porque la guía no pertenece a la oficina, y por ende no está registrada
       respuesta = {
         type: "no pertenece", guia,
+        id_heka,
         success: true, 
         swal: {
           icon: "warning",
@@ -470,6 +471,7 @@ export const recibirGuia = async (numGuia, office_id) => {
 };
 
 export const actualizaEstadoGuiaUsuario = (id_heka, user_id, actualizar) => {
+  console.log(id_heka, user_id, actualizar);
   const docRef = doc(dbFirestore, "usuarios", user_id, "guias", id_heka);
 
   updateDoc(docRef, actualizar);
