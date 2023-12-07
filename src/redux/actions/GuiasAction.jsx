@@ -3,10 +3,11 @@ import { dbFirestore } from "../../firebase";
 import {
   collection, getDocs, updateDoc, doc,
   setDoc, getDoc, where, query, collectionGroup,
-  limit
+  limit, FieldValue
 } from "@firebase/firestore";
 import { aceptarEliminar, addNotificacion } from "./NotificacionesAction";
 import tipoActualizacionEstado from "../../helpers/tipoActualizacionEstado";
+import estandarizarFecha from "../../helpers/estandarizarFecha";
 const random = (range, initial = 0) => {
   return Math.floor(Math.random() * range) + initial;
 };
@@ -215,7 +216,7 @@ export const getGuia = (id_user, guia) => {
 
 export const guiasHistorial = (guia, id_notification) => {
   const acceptedObject = {};
-  const acceptedValues = ["numeroGuia", "transportadora", "id_user", "id_heka", "fecha"];
+  const acceptedValues = ["numeroGuia", "transportadora", "id_user", "id_heka", "fecha", "nombreD", "celularD", "identificacionD"];
   acceptedValues.forEach(d => acceptedObject[d] = guia[d]);
   if(guia.recibidoEnPunto) {
     acceptedObject.recibidoEnPunto = guia.recibidoEnPunto;
@@ -250,7 +251,7 @@ export const guiasHistorial = (guia, id_notification) => {
       let nombreDoc, toSend;
 
       //Definimos la máxima cantidad de guía permitida por documento
-      const maxPermitidas = 250;
+      const maxPermitidas = 20;
 
       if (numDoc >= 1) {
         nombreDoc = "doc_" + numDoc;
@@ -473,6 +474,32 @@ export const recibirGuia = async (numGuia, office_id) => {
 export const actualizaEstadoGuiaUsuario = (id_heka, user_id, actualizar) => {
   console.log(id_heka, user_id, actualizar);
   const docRef = doc(dbFirestore, "usuarios", user_id, "guias", id_heka);
+
+  updateDoc(docRef, actualizar);
+}
+
+export const agregarSeguimientoGuiaUsuario = async (id_heka, user_id, nuevoSeguimiento) => {
+  const docRef = doc(dbFirestore, "usuarios", user_id, "estadoGuias", id_heka);
+
+  const data = await getDoc(docRef).then(d => d.exists() ? d.data() : null);
+
+  console.log(nuevoSeguimiento, data);
+
+  if(!data) return;
+
+  const {movimientos, version, ciudadD} = data;
+
+  if(version !== 2) {
+    console.warn("Esta versión del seguimiento de movimientos, no es compatible con esta actualización");
+  }
+
+  nuevoSeguimiento.fechaMov = estandarizarFecha(new Date(), "DD/MM/YYYY HH:mm");
+  nuevoSeguimiento.ubicacion = ciudadD || null;
+  movimientos.push(nuevoSeguimiento);
+  const actualizar = {
+    fechaUltimaActualizacion: new Date(),
+    movimientos,
+  }
 
   updateDoc(docRef, actualizar);
 }

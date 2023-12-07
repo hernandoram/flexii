@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import tipoActualizacionEstado from "../../helpers/tipoActualizacionEstado";
-import { actualizaEstadoGuiaUsuario, actualizarGuia, getAllGuias, guiasHistorial, recibirGuia } from "../../redux/actions/GuiasAction";
+import { actualizaEstadoGuiaUsuario, actualizarGuia, agregarSeguimientoGuiaUsuario, getAllGuias, guiasHistorial, recibirGuia } from "../../redux/actions/GuiasAction";
 import ModalInfo from "./ModalInfo";
 
 const RecibirPaquete = () => {
@@ -33,6 +33,7 @@ const RecibirPaquete = () => {
         case "no guardada":
           Object.assign(res.guia, tipoActualizacionEstado.recibir);
           dispatch(guiasHistorial(res.guia));
+          agregarSeguimientoGuiaUsuario(res.id_heka, res.guia.id_user, tipoActualizacionEstado.seguimientoUsuario.recibir);
           break;
         default:
           const swRes = await Swal.fire(res.swal);

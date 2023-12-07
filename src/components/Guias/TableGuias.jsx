@@ -10,7 +10,7 @@ import { Form } from "react-bootstrap";
 
 import { Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { actualizarGuia, actualizaEstadoGuiaUsuario } from "../../redux/actions/GuiasAction";
+import { actualizarGuia, actualizaEstadoGuiaUsuario, agregarSeguimientoGuiaUsuario } from "../../redux/actions/GuiasAction";
 import tipoActualizacionEstado from "../../helpers/tipoActualizacionEstado";
 const TableGuias = ({ guias, filter }) => {
   const dispatch = useDispatch();
@@ -43,7 +43,11 @@ const TableGuias = ({ guias, filter }) => {
     },
     {
       name: "Transportadora",
-      selector: (row) => row.transportadora,
+      selector: (row) => row.transportadora ?? "---",
+    },
+    {
+      name: "Destinatario",
+      selector: (row) => row.nombreD,
     },
     {
       name: "Acción",
@@ -115,6 +119,7 @@ const TableGuias = ({ guias, filter }) => {
     
         dispatch(actualizarGuia(actualizar, row.id_heka, row.parent_id));
         actualizaEstadoGuiaUsuario(row.id_heka, row.id_user, tipoActualizacionEstado.usuario.entregar);
+        agregarSeguimientoGuiaUsuario(row.id_heka, row.id_user, tipoActualizacionEstado.seguimientoUsuario.entregar);
       }
     });
 
